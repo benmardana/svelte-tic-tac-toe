@@ -1,4 +1,6 @@
-<script></script>
+<script>
+  export let value = '';
+</script>
 
 <style>
     button {
@@ -21,4 +23,4 @@
   }
 </style>
 
-<button></button>
+<button>{ value }</button>
