@@ -23,4 +23,4 @@
   }
 </style>
 
-<button>{ value }</button>
+<button on:click={ () => alert('click') }>{ value }</button>
