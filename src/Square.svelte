@@ -1,5 +1,8 @@
 <script>
-  export let value = '';
+  import { writable } from 'svelte/store';
+
+  const value = writable('');
+  
 </script>
 
 <style>
@@ -23,4 +26,4 @@
   }
 </style>
 
-<button on:click={ () => alert('click') }>{ value }</button>
+<button on:click={ () => value.set('X') }>{ $value }</button>
