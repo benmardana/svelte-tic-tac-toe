@@ -1,8 +1,7 @@
 <script>
-  import { writable } from 'svelte/store';
+  import { board } from './stores.js';
 
-  const value = writable('');
-  
+  export let index;
 </script>
 
 <style>
@@ -26,4 +25,4 @@
   }
 </style>
 
-<button on:click={ () => value.set('X') }>{ $value }</button>
+<button on:click={ () => board.move(index) }>{ $board[index] }</button>

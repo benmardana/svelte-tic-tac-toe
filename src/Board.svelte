@@ -1,7 +1,7 @@
 <script>
-    import Square from './Square.svelte';
+  import Square from './Square.svelte';
 
-    const status = 'Next player: X';
+  const status = 'Next player: X';
 </script>
 
 <style>
@@ -19,18 +19,18 @@
 <div>
     <div class="status">{status}</div>
     <div class="board-row">
-        <Square value={ 0 }/>
-        <Square value={ 1 }/>
-        <Square value={ 2 }/>
+        <Square index={ 0 } />
+        <Square index={ 1 } />
+        <Square index={ 2 } />
     </div>
     <div class="board-row">
-        <Square value={ 3 }/>
-        <Square value={ 4 }/>
-        <Square value={ 5 }/>
+        <Square index={ 3 } />
+        <Square index={ 4 } />
+        <Square index={ 5 } />
     </div>
     <div class="board-row">
-        <Square value={ 6 }/>
-        <Square value={ 7 }/>
-        <Square value={ 8 }/>
+        <Square index={ 6 } />
+        <Square index={ 7 } />
+        <Square index={ 8 } />
     </div>
 </div>
