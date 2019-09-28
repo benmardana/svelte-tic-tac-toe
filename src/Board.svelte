@@ -1,7 +1,8 @@
 <script>
+  import { store } from './stores.js';
   import Square from './Square.svelte';
 
-  const status = 'Next player: X';
+  const status = `Next player:`;
 </script>
 
 <style>
@@ -17,7 +18,7 @@
 </style>
 
 <div>
-    <div class="status">{status}</div>
+    <div class="status">{status} {$store.xIsNext ? 'X' : 'O'}</div>
     <div class="board-row">
         <Square index={ 0 } />
         <Square index={ 1 } />

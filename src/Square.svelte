@@ -1,5 +1,5 @@
 <script>
-  import { board } from './stores.js';
+  import { store } from './stores.js';
 
   export let index;
 </script>
@@ -25,4 +25,4 @@
   }
 </style>
 
-<button on:click={ () => board.move(index) }>{ $board[index] }</button>
+<button on:click={ () => store.move(index) }>{ $store.board[index] }</button>
