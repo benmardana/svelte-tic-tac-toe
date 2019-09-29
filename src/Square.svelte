@@ -25,4 +25,4 @@
   }
 </style>
 
-<button on:click={ () => store.move(index) }>{ $store.board[index] }</button>
+<button on:click={ () => store.move(index) }>{ $store.history[$store.history.length - 1].board[index] }</button>

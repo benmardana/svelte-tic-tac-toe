@@ -6,7 +6,7 @@
   let winner;
 
   store.subscribe(store => {
-    winner = calculateWinner(store.board);
+    winner = calculateWinner(store.history[store.history.length - 1]);
     if (winner) {
       status = `Winner: ${winner}`;
     } else {
