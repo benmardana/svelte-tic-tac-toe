@@ -1,18 +1,5 @@
 <script>
-  import { store, calculateWinner } from './stores.js';
   import Square from './Square.svelte';
-
-  let status;
-  let winner;
-
-  store.subscribe(store => {
-    winner = calculateWinner(store.history[store.history.length - 1]);
-    if (winner) {
-      status = `Winner: ${winner}`;
-    } else {
-      status = `Next player: ${store.xIsNext ? 'X' : 'O'}`;
-    }
-  });
 </script>
 
 <style>
@@ -21,14 +8,9 @@
     content: "";
     display: table;
   }
-  
-  .status {
-    margin-bottom: 10px;
-  }
 </style>
 
 <div>
-    <div class="status">{status}</div>
     <div class="board-row">
         <Square index={ 0 } />
         <Square index={ 1 } />
