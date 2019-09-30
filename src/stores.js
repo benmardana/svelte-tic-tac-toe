@@ -1,10 +1,11 @@
 import { writable } from 'svelte/store';
 
 const defaultBoard = {
-	xIsNext: true,
 	history: [{
 		board: Array(9).fill('')
-	}]
+	}],
+	xIsNext: true,
+	stepNumber: 0
 }
 
 function calculateWinner(squares) {
@@ -33,18 +34,28 @@ function createStore() {
 	return {
 		subscribe,
 		move: index => update(store => {
-			const current = store.history[store.history.length - 1];
-			console.log(store.history);
-			if (calculateWinner(current) || current[index]) {
+			const history = store.history.slice(0, store.stepNumber + 1);
+			const current = history[store.stepNumber];
+
+			if (calculateWinner(current.board) || current.board[index]) {
 				return store;
-			  }
+			}
+
 			let newBoard = current.board.slice();
 			newBoard[index] = store.xIsNext ? 'X' : 'O';
+			
 			return Object.assign({}, store, {
-				history: store.history.concat([{
+				history: history.concat([{
 					board: newBoard
-				}]), 
-				xIsNext: !store.xIsNext
+				}]),
+				xIsNext: !store.xIsNext,
+				stepNumber: ++store.stepNumber
+			})
+		}),
+		jumpTo: step => update(store => {
+			return Object.assign({}, store, {
+				xIsNext: (step % 2) === 0,
+				stepNumber: step
 			})
 		}),
 		reset: () => set(defaultBoard)
